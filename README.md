@@ -7,7 +7,7 @@ mp3_mental_disabled is a simplified MP3 speaker designed for people with intelle
 
 <img src="son.jpg" width="400" alt="synoptic">
 
-## MP3 Player for People with Mental Disabilities
+##  MP3 Player for People with Mental Disabilities
 
 One of my daughters is 80% mentally disabled. To give you an idea, at 20 years old she has the IQ of a 3-4 year old child.
 
@@ -50,6 +50,28 @@ In short: simple, effective, and it gives the person autonomy. If I tell her to 
 
 And she can stop it herself to go to sleep. IN SHORT: it's brilliant!
 
+## list of equipment
+
+I particularly recommend the French manufacturer of polycarbonate boxes, which are resistant and unbreakable scneider electrique :
+
+ *  https://www.se.com/fr/fr/product/NSYTBP16128/panelset-bo%C3%AEte-industrielle-164x121x87mm-pc/
+ *  PanelSeT - boîte industrielle - 164x121x87mm - PCNSYTBP16128
+
+ *  1Pcs Metal Round Socket Module
+ *  https://fr.aliexpress.com/item/1005005363341111.html
+
+ *  AIYIMA 2 pièces 2 "pouces 4 Ohm 3W gamme
+ *  https://fr.aliexpress.com/item/32593991938.html
+
+ *  https://fr.aliexpress.com/item/1005007445592831.html
+ * 
+ *  Ttiny85 Digispark Kickstarter Micro USB
+ *  https://fr.aliexpress.com/item/1005009004637470.html
+
+ *  Audio MP3 TF 2W 5V
+ *  https://fr.aliexpress.com/item/1005009187267335.html
+
+   
 
 
 <img src="plan.jpg" width="400" alt="blue print">
