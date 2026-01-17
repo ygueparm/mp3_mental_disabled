@@ -23,6 +23,8 @@ The point that was giving me trouble was using optocouplers. I found something b
 Since the inputs are active low, I use the Tiny's LOW output, and for "no press" I set the pin as an input (so in high impedance state).
 
 To pull to ground:
+
+'''
 cpp
 
 void setPinLow(uint8_t pin) {
@@ -39,6 +41,7 @@ void setPinHighZ(uint8_t pin) {
   pinMode(pin, INPUT);
   digitalWrite(pin, LOW); // (just in case)
 }
+'''
 
 So no optocoupler and I'm using 4 pins out of 6 on the Tiny. At startup, I increase the volume, then I limit button presses.
 The next track can only be selected after 5 seconds, so she actually listens a bit before changing :)
@@ -52,7 +55,8 @@ And she can stop it herself to go to sleep. IN SHORT: it's brilliant!
 
 ## list of equipment
 
-I particularly recommend the French manufacturer of polycarbonate boxes, which are resistant and unbreakable scneider electrique :
+### I particularly recommend the French manufacturer of polycarbonate boxes, which are resistant and unbreakable scneider electrique :
+The cover is closed with four captive flat screws located outside the sealed area of the enclosure to maintain the IP rating. It is TÜV and UL certified and is fire resistant up to 960°C in accordance with IEC 62208. It offers high protection against dust and water with an IP66 rating (NEMA 4.4X). It is impact resistant (IK08 rating, IEC 62262). It also has Class II electrical insulation, which prevents electric shocks and offers fully insulated solutions. It can be stored at temperatures between -15 and 60°C and used between -25 and 80°C without affecting its performance.
 
  *  https://www.se.com/fr/fr/product/NSYTBP16128/panelset-bo%C3%AEte-industrielle-164x121x87mm-pc/
  *  PanelSeT - boîte industrielle - 164x121x87mm - PCNSYTBP16128
