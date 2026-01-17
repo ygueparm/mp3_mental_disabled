@@ -1,6 +1,7 @@
 # mp3_mental_disabled
 mp3_mental_disabled is a simplified MP3 speaker designed for people with intellectual disabilities. It focuses on ease of use, minimal controls, and clear audio playback. The project aims to provide an accessible, reliable, and stress-free music experience using simple hardware and software.
 
+<img src="son.jpg" width="400" alt="synoptic">
 
 ## MP3 Player for People with Mental Disabilities
 
@@ -44,5 +45,9 @@ To increase the volume more and more, just do several power cycles in a row.
 In short: simple, effective, and it gives the person autonomy. If I tell her to stop the music, she can do it, change tracks, lower the volume too.
 
 And she can stop it herself to go to sleep. IN SHORT: it's brilliant!
+
+
+
+<img src="plan.jpg" width="400" alt="blue print">
 
 Why choose the Tiny85? I always feel a bit bad using only 4 pins out of 40 on a microcontroller. Low power consumption, 1MHz speed, variable supply voltage. Very flexible to use and very cheap. A bit difficult to program because you need an Arduino in ISP mode as an interface between the Tiny and Arduino IDE.
