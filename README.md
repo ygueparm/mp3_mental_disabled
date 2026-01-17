@@ -55,7 +55,7 @@ And she can stop it herself to go to sleep. IN SHORT: it's brilliant!
 ## list of equipment
 
 ### I particularly recommend the French manufacturer of polycarbonate boxes, which are resistant and unbreakable schneider electrique :
-The cover is closed with four captive flat screws located outside the sealed area of the enclosure to maintain the IP rating. It is TÜV and UL certified and is fire resistant up to 960°C in accordance with IEC 62208. It offers high protection against dust and water with an IP66 rating (NEMA 4.4X). It is impact resistant (IK08 rating, IEC 62262). It also has Class II electrical insulation, which prevents electric shocks and offers fully insulated solutions. It can be stored at temperatures between -15 and 60°C and used between -25 and 80°C without affecting its performance.
+The cover is closed with four captive flat screws located outside the sealed area of the enclosure to maintain the IP rating. It is TÜV and UL certified and is fire resistant up to 960°C in accordance with IEC 62208. It offers high protection against dust and water with an IP66 rating (NEMA 4.4X). It is impact resistant (IK08 rating, IEC 62262). It also has Class II electrical insulation, which prevents electric shocks and offers fully insulated solutions. It can be stored at temperatures between -15 and 60°C and used between -25 and 80°C without affecting its performance. you can use it even in siberia ! :)
 
  *  https://www.se.com/fr/fr/product/NSYTBP16128/panelset-bo%C3%AEte-industrielle-164x121x87mm-pc/
  *  PanelSeT - boîte industrielle - 164x121x87mm - PCNSYTBP16128
