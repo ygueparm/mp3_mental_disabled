@@ -81,6 +81,14 @@ The cover is closed with four captive flat screws located outside the sealed are
 
 Why choose the Tiny85? I always feel a bit bad using only 4 pins out of 40 on a microcontroller. Low power consumption, 1MHz speed, variable supply voltage. Very flexible to use and very cheap. A bit difficult to program because you need an Arduino in ISP mode as an interface between the Tiny and Arduino IDE.
 
-# programming Attiny85
+# Smal production
 
-Unfortunately, programming the Tiny85 is not easy. You need an Arduino UNO with ISP mode available in Arduino IDE, connect it to your computer, and connect the Tiny85 to the Arduino UNO. There are some good tutorials on the internet.
+Now the project is very well and my daughter is very happy but it take 2 to 3 hours to make one, for small production i made a mother board
+for reduce the time for it.
+
+<img src="pcb-1.jpb" width="400" alt="blue print">
+ 
+you can bough 5 pcb for less than 20€ and really make 5 mp3 more quick than solder all the wire for each one.
+
+in the futur if the prodcution need another upgrade i will make a complete pcb with only the mp3 module as a daughter board, and everything else
+boost, bms and attiny directly solder on the pcb. it need approxymatly 20 or more mp3 to do that, in my mind
