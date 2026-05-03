@@ -117,7 +117,7 @@
 			)
 		)
 		(property "Value" "step up in +"
-			(at 0 -2.51 90)
+			(at -3.32 -2.94 90)
 			(layer "F.SilkS")
 			(uuid "40477136-e37e-44dd-8d94-90521ab129b0")
 			(effects
@@ -347,7 +347,7 @@
 		(at 102.28 64.39)
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
-		(property "Reference" "J5_C189893"
+		(property "Reference" "J5"
 			(at 0 -2.38 0)
 			(layer "F.SilkS")
 			(uuid "9850bd15-f209-486f-9d69-6f4cc740ad55")
@@ -600,7 +600,7 @@
 		(at 111.825 37.04 180)
 		(descr "JST GH series connector, BM02B-GHS-TBT (http://www.jst-mfg.com/product/pdf/eng/eGH.pdf), generated with kicad-footprint-generator")
 		(tags "connector JST GH vertical")
-		(property "Reference" "J17_C189893"
+		(property "Reference" "J17"
 			(at 0 -4 180)
 			(layer "F.SilkS")
 			(uuid "f575a0e7-92b3-4426-a70e-e1e195820fa9")
@@ -1857,7 +1857,7 @@
 			)
 		)
 		(property "Value" "step up in -"
-			(at 3.14 4.52 180)
+			(at -3.86 3.02 270)
 			(layer "F.SilkS")
 			(uuid "50606ca9-f668-40e1-91b6-21139db1e53d")
 			(effects
@@ -2846,7 +2846,7 @@
 		(at 111.825 27.81 180)
 		(descr "JST GH series connector, BM02B-GHS-TBT (http://www.jst-mfg.com/product/pdf/eng/eGH.pdf), generated with kicad-footprint-generator")
 		(tags "connector JST GH vertical")
-		(property "Reference" "J18_C189893"
+		(property "Reference" "J18"
 			(at 0 -4 0)
 			(layer "F.SilkS")
 			(uuid "cd6d67f0-df2c-4de3-8013-81c2a5ecf868")
@@ -6357,7 +6357,7 @@
 		(at 100.265 27.81 180)
 		(descr "JST GH series connector, BM02B-GHS-TBT (http://www.jst-mfg.com/product/pdf/eng/eGH.pdf), generated with kicad-footprint-generator")
 		(tags "connector JST GH vertical")
-		(property "Reference" "J19_C189893"
+		(property "Reference" "J19"
 			(at 0 -4 0)
 			(layer "F.SilkS")
 			(uuid "7e009f68-2dcd-4122-9f3a-078cc546d14c")
@@ -6654,7 +6654,7 @@
 		(at 112 47.54 180)
 		(descr "JST GH series connector, BM02B-GHS-TBT (http://www.jst-mfg.com/product/pdf/eng/eGH.pdf), generated with kicad-footprint-generator")
 		(tags "connector JST GH vertical")
-		(property "Reference" "J21_C189893"
+		(property "Reference" "J21"
 			(at 0 -4 180)
 			(layer "F.SilkS")
 			(uuid "cff62875-3dff-4ef0-a76c-9fb695a375db")
@@ -9671,14 +9671,6 @@
 		(uuid "c495fb23-8da8-4ad2-81bc-9e366338d08b")
 	)
 	(segment
-		(start 111.48 96.52)
-		(end 111.5 96.5)
-		(width 0.5)
-		(layer "F.Cu")
-		(net 2)
-		(uuid "0e8eb6a1-22ec-4dd9-a84e-780060c2be6f")
-	)
-	(segment
 		(start 107.95 96.52)
 		(end 107.95 98.05)
 		(width 0.5)
@@ -9799,14 +9791,6 @@
 		(uuid "ac93ef95-924a-480a-8e7b-9edf6231b98e")
 	)
 	(segment
-		(start 107.95 96.52)
-		(end 111.48 96.52)
-		(width 0.5)
-		(layer "F.Cu")
-		(net 2)
-		(uuid "c6492b6b-010d-45f5-8af7-804a0d16a02e")
-	)
-	(segment
 		(start 92 107.5)
 		(end 92.5 107)
 		(width 0.5)
@@ -9823,20 +9807,20 @@
 		(uuid "9f739c89-5d66-4e14-a2a6-af2398988974")
 	)
 	(via
-		(at 111.5 96.5)
-		(size 0.6)
-		(drill 0.3)
-		(layers "F.Cu" "B.Cu")
-		(net 2)
-		(uuid "afe31196-32c0-4d55-904f-e87dfe3b7dfb")
-	)
-	(via
 		(at 109.5 70)
 		(size 0.6)
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net 2)
 		(uuid "b17d184d-407f-49cc-885b-94df7b46fdfe")
+	)
+	(segment
+		(start 109.5 70)
+		(end 109.5 94.97)
+		(width 0.5)
+		(layer "B.Cu")
+		(net 2)
+		(uuid "03a32e86-27c6-42cd-9fb9-b15c9dfcad1a")
 	)
 	(segment
 		(start 110 67)
@@ -9863,20 +9847,12 @@
 		(uuid "6cd9b4d7-949f-4ace-b1a3-af5f41fb8cc3")
 	)
 	(segment
-		(start 109.5 82.5)
-		(end 109.5 70)
+		(start 109.5 94.97)
+		(end 107.95 96.52)
 		(width 0.5)
 		(layer "B.Cu")
 		(net 2)
-		(uuid "9b705b51-173f-428f-b2ae-bb923d57ffd2")
-	)
-	(segment
-		(start 111.5 96.5)
-		(end 111.5 84.5)
-		(width 0.5)
-		(layer "B.Cu")
-		(net 2)
-		(uuid "b8c5e495-fcdd-4782-be60-c5312b66b6de")
+		(uuid "a33a19ba-ab3a-46e7-8aae-93b6a828ff00")
 	)
 	(segment
 		(start 98.5 62.5)
@@ -9885,14 +9861,6 @@
 		(layer "B.Cu")
 		(net 2)
 		(uuid "d592a1b5-b8c9-49ce-a7de-355b3c4a3411")
-	)
-	(segment
-		(start 111.5 84.5)
-		(end 109.5 82.5)
-		(width 0.5)
-		(layer "B.Cu")
-		(net 2)
-		(uuid "e5538234-a562-4abb-9e50-2ed3acc13b33")
 	)
 	(segment
 		(start 107.5 61.5)
@@ -10239,28 +10207,52 @@
 		(uuid "65d7aa25-0065-4ad0-84f5-2cfba1dca0c3")
 	)
 	(segment
-		(start 92.271 41.051)
+		(start 100 79.5)
+		(end 100 69)
+		(width 0.5)
+		(layer "B.Cu")
+		(net 11)
+		(uuid "204cd64b-6460-495f-a862-f55a397ad79b")
+	)
+	(segment
+		(start 94.5 63.5)
+		(end 94.5 41.5)
+		(width 0.5)
+		(layer "B.Cu")
+		(net 11)
+		(uuid "4b2e42ee-8543-4177-891a-440a68b05b28")
+	)
+	(segment
+		(start 94.5 41.5)
+		(end 92.75 39.75)
+		(width 0.5)
+		(layer "B.Cu")
+		(net 11)
+		(uuid "76ab836c-a39c-40c1-a1cd-18a6aed63106")
+	)
+	(segment
+		(start 101.5 81)
+		(end 100 79.5)
+		(width 0.5)
+		(layer "B.Cu")
+		(net 11)
+		(uuid "ed2e0ac4-8b4e-4b2f-b950-0d87f93b63b2")
+	)
+	(segment
+		(start 92.75 39.75)
 		(end 90.97 39.75)
 		(width 0.5)
 		(layer "B.Cu")
 		(net 11)
-		(uuid "2cda0d22-6149-48e1-9197-73ba0b3db34a")
+		(uuid "f87adaeb-72b0-4caa-9829-11c8ce3d62b1")
 	)
 	(segment
-		(start 92.271 71.771)
-		(end 92.271 41.051)
+		(start 100 69)
+		(end 94.5 63.5)
 		(width 0.5)
 		(layer "B.Cu")
 		(net 11)
-		(uuid "7d943a45-91f6-4b9b-8ac6-804cf2dc58f4")
-	)
-	(segment
-		(start 101.5 81)
-		(end 92.271 71.771)
-		(width 0.5)
-		(layer "B.Cu")
-		(net 11)
-		(uuid "8ac15dc2-6f27-4c54-8bc1-18fa273a2af1")
+		(uuid "fc382bab-4837-4f52-a315-a15c6934b4c0")
 	)
 	(segment
 		(start 114.5 58)

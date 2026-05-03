@@ -1669,12 +1669,6 @@
 		(uuid "2c24e2ee-57cb-4cc9-80cb-5d1459cbc8a7")
 	)
 	(junction
-		(at 125.73 45.72)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "3cb0323b-8e21-41b6-873d-92ecdbb3c80c")
-	)
-	(junction
 		(at 93.98 90.17)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1691,6 +1685,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "51a0d4c5-df33-472b-896e-34f1a8f3a59a")
+	)
+	(junction
+		(at 125.73 45.72)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5902961e-2db1-4b26-af3a-f886d12b28c6")
 	)
 	(junction
 		(at 71.12 127)
@@ -2715,7 +2715,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "331013e5-a678-4d51-af71-8f6a5a590a2c")
-		(property "Reference" "J23"
+		(property "Reference" "J23-C189893"
 			(at 37.465 67.31 0)
 			(effects
 				(font
@@ -2731,7 +2731,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
+		(property "Footprint" "Connector_JST:JST_GH_BM02B-GHS-TBT_1x02-1MP_P1.25mm_Vertical"
 			(at 36.83 72.39 0)
 			(effects
 				(font
@@ -2767,7 +2767,7 @@
 		(instances
 			(project ""
 				(path "/1d4ba15b-5ce7-48af-a486-6050b996f974"
-					(reference "J23")
+					(reference "J23-C189893")
 					(unit 1)
 				)
 			)
@@ -2858,7 +2858,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "4.7kΩ _C2907499"
 			(at 135.89 50.7999 0)
 			(effects
 				(font
@@ -2919,7 +2919,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "47272fb6-3b79-44af-b882-89b508f52e59")
-		(property "Reference" "J15"
+		(property "Reference" "J15_C189893"
 			(at 66.675 154.94 0)
 			(effects
 				(font
@@ -2935,7 +2935,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical"
+		(property "Footprint" "Connector_JST:JST_GH_BM02B-GHS-TBT_1x02-1MP_P1.25mm_Vertical"
 			(at 66.04 160.02 0)
 			(effects
 				(font
@@ -2971,7 +2971,7 @@
 		(instances
 			(project "board"
 				(path "/1d4ba15b-5ce7-48af-a486-6050b996f974"
-					(reference "J15")
+					(reference "J15_C189893")
 					(unit 1)
 				)
 			)
@@ -3053,7 +3053,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4e93d418-d4e8-4ebb-80e0-49ad03a9140f")
-		(property "Reference" "J5"
+		(property "Reference" "J5_C189893"
 			(at 69.215 85.09 0)
 			(effects
 				(font
@@ -3069,7 +3069,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 			(at 68.58 90.17 0)
 			(effects
 				(font
@@ -3105,7 +3105,7 @@
 		(instances
 			(project ""
 				(path "/1d4ba15b-5ce7-48af-a486-6050b996f974"
-					(reference "J5")
+					(reference "J5_C189893")
 					(unit 1)
 				)
 			)
@@ -3113,7 +3113,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 125.73 49.53 180)
+		(at 125.73 49.53 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3127,20 +3127,20 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "4.7kΩ _C2907499"
 			(at 128.27 50.7999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
-			(at 127.508 49.53 90)
+			(at 123.952 49.53 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3207,7 +3207,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 			(at 130.81 90.17 0)
 			(effects
 				(font
@@ -3458,7 +3458,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8ec1dbf2-6eb0-4d0d-8ea3-957ed83c7971")
-		(property "Reference" "J21"
+		(property "Reference" "J21_C189893"
 			(at 139.065 58.42 0)
 			(effects
 				(font
@@ -3474,7 +3474,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical"
+		(property "Footprint" "Connector_JST:JST_GH_BM02B-GHS-TBT_1x02-1MP_P1.25mm_Vertical"
 			(at 139.7 63.5 0)
 			(effects
 				(font
@@ -3510,7 +3510,7 @@
 		(instances
 			(project "board"
 				(path "/1d4ba15b-5ce7-48af-a486-6050b996f974"
-					(reference "J21")
+					(reference "J21_C189893")
 					(unit 1)
 				)
 			)
@@ -3526,7 +3526,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a082820f-5008-40b7-8383-91942e2a8446")
-		(property "Reference" "J19"
+		(property "Reference" "J19_C189893"
 			(at 67.945 167.64 0)
 			(effects
 				(font
@@ -3542,7 +3542,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical"
+		(property "Footprint" "Connector_JST:JST_GH_BM02B-GHS-TBT_1x02-1MP_P1.25mm_Vertical"
 			(at 67.31 172.72 0)
 			(effects
 				(font
@@ -3578,7 +3578,7 @@
 		(instances
 			(project "board"
 				(path "/1d4ba15b-5ce7-48af-a486-6050b996f974"
-					(reference "J19")
+					(reference "J19_C189893")
 					(unit 1)
 				)
 			)
@@ -3666,7 +3666,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a7c5da98-d27d-4446-9a21-70df6a504d7f")
-		(property "Reference" "J17"
+		(property "Reference" "J17_C189893"
 			(at 135.255 73.66 0)
 			(effects
 				(font
@@ -3682,7 +3682,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical"
+		(property "Footprint" "Connector_JST:JST_GH_BM02B-GHS-TBT_1x02-1MP_P1.25mm_Vertical"
 			(at 134.62 78.74 0)
 			(effects
 				(font
@@ -3718,7 +3718,7 @@
 		(instances
 			(project "board"
 				(path "/1d4ba15b-5ce7-48af-a486-6050b996f974"
-					(reference "J17")
+					(reference "J17_C189893")
 					(unit 1)
 				)
 			)
@@ -3805,7 +3805,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b225a1ed-3695-44ab-8e73-116328bf12c2")
-		(property "Reference" "J18"
+		(property "Reference" "J18_C189893"
 			(at 135.255 154.94 0)
 			(effects
 				(font
@@ -3821,7 +3821,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical"
+		(property "Footprint" "Connector_JST:JST_GH_BM02B-GHS-TBT_1x02-1MP_P1.25mm_Vertical"
 			(at 134.62 160.02 0)
 			(effects
 				(font
@@ -3857,7 +3857,7 @@
 		(instances
 			(project "board"
 				(path "/1d4ba15b-5ce7-48af-a486-6050b996f974"
-					(reference "J18")
+					(reference "J18_C189893")
 					(unit 1)
 				)
 			)
@@ -3940,7 +3940,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bf214c76-00f8-4118-a07e-2e3104b85bc2")
-		(property "Reference" "J22"
+		(property "Reference" "J22_C189893"
 			(at 147.955 87.63 0)
 			(effects
 				(font
@@ -3956,7 +3956,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical"
+		(property "Footprint" "Connector_JST:JST_GH_BM02B-GHS-TBT_1x02-1MP_P1.25mm_Vertical"
 			(at 148.59 92.71 0)
 			(effects
 				(font
@@ -3992,7 +3992,7 @@
 		(instances
 			(project "board"
 				(path "/1d4ba15b-5ce7-48af-a486-6050b996f974"
-					(reference "J22")
+					(reference "J22_C189893")
 					(unit 1)
 				)
 			)
