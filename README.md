@@ -86,7 +86,7 @@ Why choose the Tiny85? I always feel a bit bad using only 4 pins out of 40 on a 
 Now the project is very well and my daughter is very happy but it take 2 to 3 hours to make one, for small production i made a mother board
 for reduce the time for it.
 
-<img src="pcb-1.jpb" width="400" alt="blue print">
+<img src="pcb-1.jpg" width="400" alt="pcb">
  
 you can bough 5 pcb for less than 20€ and really make 5 mp3 more quick than solder all the wire for each one.
 
