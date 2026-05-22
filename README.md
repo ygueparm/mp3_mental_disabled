@@ -83,12 +83,15 @@ Why choose the Tiny85? I always feel a bit bad using only 4 pins out of 40 on a 
 
 # Smal production
 
+<img src="pcb-1.jpg" width="400" alt="pcb">
+
 Now the project is very well and my daughter is very happy but it take 2 to 3 hours to make one, for small production i made a mother board
 for reduce the time for it. time to time and buold one for this friends, and some young children like it very much (2 to 5 years old) !
 
-<img src="pcb-1.jpg" width="400" alt="pcb">
+<img src="pcb-final1.jpg" width="400" alt="pcb">
+<img src="pcb-final2.jpg" width="400" alt="pcb">
  
-you can bough 5 pcb for less than 20€ and really make 5 mp3 more quick than solder all the wire for each one.
+you can bough 5 pcb for less than 20€ and really make 5 mp3 more quick than solder all the wire for each one. i finish electronqiue for one in 10 minutes instead 2h
 
-in the futur if the prodcution need another upgrade i will make a complete pcb with only the mp3 module as a daughter board, and everything else
-boost, bms and attiny directly solder on the pcb. it need approxymatly 20 or more mp3 to do that, in my mind
+in the futur if the production need another upgrade i will make a complete pcb with only the mp3 module as a daughter board, and everything else
+boost, bms and attiny directly solder on the pcb. it need approxymatly 20 or more mp3 to do that, actually made it for free only the case need to be bought for my friend and other mental disabled friend
