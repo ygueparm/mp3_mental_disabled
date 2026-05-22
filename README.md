@@ -84,6 +84,8 @@ Why choose the Tiny85? I always feel a bit bad using only 4 pins out of 40 on a 
 # Smal production
 
 <img src="pcb-1.jpg" width="400" alt="pcb">
+<img src="pcb-2.jpg" width="400" alt="pcb">
+
 
 Now the project is very well and my daughter is very happy but it take 2 to 3 hours to make one, for small production i made a mother board
 for reduce the time for it. time to time and buold one for this friends, and some young children like it very much (2 to 5 years old) !
