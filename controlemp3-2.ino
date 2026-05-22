@@ -2,7 +2,9 @@
  * Contrôleur MP3 Minimaliste avec ATtiny85
  * Version: 3.4 FINALE
  * Date: 29 décembre 2025
- * 
+ *
+ *       NE PAS OUBLIER DE BURN BOOTLOADER POUR BAISSER LA FREQUENCE à 1 MHZ
+ *
  * Spécifications (TESTÉ SUR HARDWARE RÉEL):
  * - Power: Géré par le module MP3 (pas de contrôle depuis ATtiny)
  * - Bouton 1 (PB3): Next Track → PB2 (350ms)
@@ -13,6 +15,16 @@
  * - Alimentation 3.3V, CPU 1 MHz
  * - Anti-rebond logiciel 20ms
  * - Temporisations accessibilité: Next=5s, Vol-=2s
+
+ | Arduino Uno | ATtiny85 (broche physique) | Sérigraphie | Fonction |
+| ----------- | -------------------------- | ----------- | -------- |
+| **10**      | 1                          | **P5**      | RESET    |
+| **11**      | 5                          | **P0**      | MOSI     |
+| **12**      | 6                          | **P1**      | MISO     |
+| **13**      | 7                          | **P2**      | SCK      |
+| **5V**      | 8                          | **VCC**     | Alim +5V |
+| **GND**     | 4                          | **GND**     | Masse    |
+
  */
 
 // Définition des broches
@@ -24,17 +36,17 @@ const uint8_t KEY_TRACK = 2;     // PB2 - Sortie vers KEY (Next 350ms / Vol+ 250
 // Durées de pulse fixes (mesures réelles)
 const uint16_t PULSE_NEXT = 250;       // ms - durée pour next track (sur PB2)
 const uint16_t PULSE_VOL_UP = 2500;    // ms - durée pour volume + (sur PB2, setup uniquement)
-const uint16_t PULSE_VOL_DOWN = 1400;  // ms - durée pour volume - (sur PB0)
+const uint16_t PULSE_VOL_DOWN = 1500;  // ms - durée pour volume - (sur PB0)
 
 // Délai initial pour attendre que le module MP3 démarre
-const uint16_t MP3_BOOT_DELAY = 1500;  // ms - attendre que le module MP3 soit prêt
+const uint16_t MP3_BOOT_DELAY = 1000;  // ms - attendre que le module MP3 soit prêt
 
 // Constantes de timing
-const uint16_t DEBOUNCE_DELAY = 20;    // ms - anti-rebond
+const uint16_t DEBOUNCE_DELAY = 50;    // ms - anti-rebond
 
 // Temporisations anti-appuis multiples (accessibilité)
-const uint16_t COOLDOWN_NEXT = 3000;   // ms - 5 secondes entre chaque next
-const uint16_t COOLDOWN_VOL_D = 1000;  // ms - 2 secondes entre chaque baisse volume
+const uint16_t COOLDOWN_NEXT = 4000;   // ms - 5 secondes entre chaque next
+const uint16_t COOLDOWN_VOL_D = 2000;  // ms - 2 secondes entre chaque baisse volume
 
 // Variables d'état Bouton Next
 uint8_t lastBtnStateNext = HIGH;
@@ -143,7 +155,7 @@ void setup() {
     delay(MP3_BOOT_DELAY);
     
     // Augmenter le volume 1 fois au démarrage (pulse long 2500ms sur PB2)
-    sendPulse(KEY_TRACK, PULSE_VOL_UP);
+   //  sendPulse(KEY_TRACK, PULSE_VOL_UP); // pas la peine si son a 0 lors du prochain arret marche le son revient
     
     // Petite pause après l'augmentation du volume
     delay(500);
