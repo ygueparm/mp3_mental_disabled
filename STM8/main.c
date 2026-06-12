@@ -1,6 +1,6 @@
 /*
  * Contrôleur MP3 Minimaliste — STM8S001J3
- * Porté depuis ATtiny85 v3.4
+ * Porté depuis ATtiny85 v3.4 avec claude 4.6
  *
  * Toolchain : SDCC + stm8flash
  * Compilé avec : sdcc -mstm8 --std-sdcc11 main.c
