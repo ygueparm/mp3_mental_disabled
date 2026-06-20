@@ -1,6 +1,6 @@
 /*
  * Contrôleur MP3 Minimaliste — STM8S001J3
- * Porté depuis ATtiny85 v3.4 avec claude 4.6
+ * Porté depuis ATtiny85 v3.4
  *
  * Toolchain : SDCC + stm8flash
  * Compilé avec : sdcc -mstm8 --std-sdcc11 main.c
@@ -304,10 +304,14 @@ void main(void)
 
     debounceNext   = millis();
     debounceVolD   = millis();
-    lastActionNext = 0;
-    lastActionVolD = 0;
 
     delay_ms(MP3_BOOT_DELAY);
+
+    /* Initialiser les cooldowns APRÈS le délai de boot :
+     * millis() vaut ~1000 ms ici, donc lastAction = millis() - COOLDOWN
+     * garantit que can_trigger() retourne vrai dès le premier appui. */
+    lastActionNext = millis() - COOLDOWN_NEXT;
+    lastActionVolD = millis() - COOLDOWN_VOLD;
 
     /* Volume+ au démarrage — décommentez si nécessaire */
     /* send_pulse(1, PULSE_VOL_UP); */

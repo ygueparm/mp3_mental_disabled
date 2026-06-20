@@ -1,0 +1,69 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8)  Page 1
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000001 L
+  A _TIM4_UPD_OVF_IRQHandler                                       000000 GR
+    ___sdcc_external_startup                                       ****** GX
+  5 __interrupt_vect                                               000000 R
+  6 __sdcc_init_data                                               000009 R
+  5 __sdcc_program_startup                                         000068 R
+  3 __start__stack                                                 000000 R
+  9 __xinit__btnStateNext                                          000005 R
+  9 __xinit__btnStateVolD                                          00000F R
+  9 __xinit__debounceNext                                          000006 R
+  9 __xinit__debounceVolD                                          000010 R
+  9 __xinit__lastActionNext                                        00000A R
+  9 __xinit__lastActionVolD                                        000014 R
+  9 __xinit__lastStateNext                                         000004 R
+  9 __xinit__lastStateVolD                                         00000E R
+  9 __xinit__tick_ms                                               000000 R
+  2 _btnStateNext                                                  000005 R
+  2 _btnStateVolD                                                  00000F R
+  A _button_fell                                                   0000AA R
+  A _can_trigger                                                   000115 R
+  2 _debounceNext                                                  000006 R
+  2 _debounceVolD                                                  000010 R
+  A _delay_ms                                                      000022 R
+  A _hw_init                                                       00016E R
+  2 _lastActionNext                                                00000A R
+  2 _lastActionVolD                                                000014 R
+  2 _lastStateNext                                                 000004 R
+  2 _lastStateVolD                                                 00000E R
+  A _main                                                          0001CF GR
+  A _millis                                                        000018 R
+  A _pin_hiz                                                       00007D R
+  A _pin_low                                                       00005D R
+  A _send_pulse                                                    00009D R
+  2 _tick_ms                                                       000000 R
+  A _tim4_init                                                     000155 R
+    l_DATA                                                         ****** GX
+    l_INITIALIZER                                                  ****** GX
+    s_DATA                                                         ****** GX
+    s_GSINIT                                                       ****** GX
+    s_INITIALIZED                                                  ****** GX
+    s_INITIALIZER                                                  ****** GX
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8)  Page 2
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size      0   flags    0
+   1 DATA                                       size      0   flags    0
+   2 INITIALIZED                                size     18   flags    0
+   3 SSEG                                       size      1   flags    0
+   4 DABS                                       size      0   flags    8
+   5 HOME                                       size     6B   flags    0
+   6 GSINIT                                     size     23   flags    0
+   7 GSFINAL                                    size      3   flags    0
+   8 CONST                                      size      0   flags    0
+   9 INITIALIZER                                size     18   flags    0
+   A CODE                                       size    2A2   flags    0
+   B CABS                                       size      0   flags    8
+

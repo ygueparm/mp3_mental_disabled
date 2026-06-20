@@ -1,0 +1,617 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler
+                                      3 ; Version 4.5.0 #15242 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module main
+                                      6 	
+                                      7 ;--------------------------------------------------------
+                                      8 ; Public variables in this module
+                                      9 ;--------------------------------------------------------
+                                     10 	.globl _main
+                                     11 	.globl _TIM4_UPD_OVF_IRQHandler
+                                     12 ;--------------------------------------------------------
+                                     13 ; ram data
+                                     14 ;--------------------------------------------------------
+                                     15 	.area DATA
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area INITIALIZED
+      000000                         20 _tick_ms:
+      000000                         21 	.ds 4
+      000004                         22 _lastStateNext:
+      000004                         23 	.ds 1
+      000005                         24 _btnStateNext:
+      000005                         25 	.ds 1
+      000006                         26 _debounceNext:
+      000006                         27 	.ds 4
+      00000A                         28 _lastActionNext:
+      00000A                         29 	.ds 4
+      00000E                         30 _lastStateVolD:
+      00000E                         31 	.ds 1
+      00000F                         32 _btnStateVolD:
+      00000F                         33 	.ds 1
+      000010                         34 _debounceVolD:
+      000010                         35 	.ds 4
+      000014                         36 _lastActionVolD:
+      000014                         37 	.ds 4
+                                     38 ;--------------------------------------------------------
+                                     39 ; Stack segment in internal ram
+                                     40 ;--------------------------------------------------------
+                                     41 	.area SSEG
+      000000                         42 __start__stack:
+      000000                         43 	.ds	1
+                                     44 
+                                     45 ;--------------------------------------------------------
+                                     46 ; absolute external ram data
+                                     47 ;--------------------------------------------------------
+                                     48 	.area DABS (ABS)
+                                     49 
+                                     50 ; default segment ordering for linker
+                                     51 	.area HOME
+                                     52 	.area GSINIT
+                                     53 	.area GSFINAL
+                                     54 	.area CONST
+                                     55 	.area INITIALIZER
+                                     56 	.area CODE
+                                     57 
+                                     58 ;--------------------------------------------------------
+                                     59 ; interrupt vector
+                                     60 ;--------------------------------------------------------
+                                     61 	.area HOME
+      000000                         62 __interrupt_vect:
+      000000 82v00u00u00             63 	int s_GSINIT ; reset
+      000004 82 00 00 00             64 	int 0x000000 ; trap
+      000008 82 00 00 00             65 	int 0x000000 ; int0
+      00000C 82 00 00 00             66 	int 0x000000 ; int1
+      000010 82 00 00 00             67 	int 0x000000 ; int2
+      000014 82 00 00 00             68 	int 0x000000 ; int3
+      000018 82 00 00 00             69 	int 0x000000 ; int4
+      00001C 82 00 00 00             70 	int 0x000000 ; int5
+      000020 82 00 00 00             71 	int 0x000000 ; int6
+      000024 82 00 00 00             72 	int 0x000000 ; int7
+      000028 82 00 00 00             73 	int 0x000000 ; int8
+      00002C 82 00 00 00             74 	int 0x000000 ; int9
+      000030 82 00 00 00             75 	int 0x000000 ; int10
+      000034 82 00 00 00             76 	int 0x000000 ; int11
+      000038 82 00 00 00             77 	int 0x000000 ; int12
+      00003C 82 00 00 00             78 	int 0x000000 ; int13
+      000040 82 00 00 00             79 	int 0x000000 ; int14
+      000044 82 00 00 00             80 	int 0x000000 ; int15
+      000048 82 00 00 00             81 	int 0x000000 ; int16
+      00004C 82 00 00 00             82 	int 0x000000 ; int17
+      000050 82 00 00 00             83 	int 0x000000 ; int18
+      000054 82 00 00 00             84 	int 0x000000 ; int19
+      000058 82 00 00 00             85 	int 0x000000 ; int20
+      00005C 82 00 00 00             86 	int 0x000000 ; int21
+      000060 82 00 00 00             87 	int 0x000000 ; int22
+      000064 82v00u00u00             88 	int _TIM4_UPD_OVF_IRQHandler ; int23
+                                     89 ;--------------------------------------------------------
+                                     90 ; global & static initialisations
+                                     91 ;--------------------------------------------------------
+                                     92 	.area HOME
+                                     93 	.area GSINIT
+                                     94 	.area GSFINAL
+                                     95 	.area GSINIT
+      000000 CDr00r00         [ 4]   96 	call	___sdcc_external_startup
+      000003 4D               [ 1]   97 	tnz	a
+      000004 27 03            [ 1]   98 	jreq	__sdcc_init_data
+      000006 CCr00r68         [ 2]   99 	jp	__sdcc_program_startup
+      000009                        100 __sdcc_init_data:
+                                    101 ; stm8_genXINIT() start
+      000009 AEr00r00         [ 2]  102 	ldw x, #l_DATA
+      00000C 27 07            [ 1]  103 	jreq	00002$
+      00000E                        104 00001$:
+      00000E 72 4FuFFuFF      [ 1]  105 	clr (s_DATA - 1, x)
+      000012 5A               [ 2]  106 	decw x
+      000013 26 F9            [ 1]  107 	jrne	00001$
+      000015                        108 00002$:
+      000015 AEr00r00         [ 2]  109 	ldw	x, #l_INITIALIZER
+      000018 27 09            [ 1]  110 	jreq	00004$
+      00001A                        111 00003$:
+      00001A D6uFFuFF         [ 1]  112 	ld	a, (s_INITIALIZER - 1, x)
+      00001D D7uFFuFF         [ 1]  113 	ld	(s_INITIALIZED - 1, x), a
+      000020 5A               [ 2]  114 	decw	x
+      000021 26 F7            [ 1]  115 	jrne	00003$
+      000023                        116 00004$:
+                                    117 ; stm8_genXINIT() end
+                                    118 	.area GSFINAL
+      000000 CCr00r68         [ 2]  119 	jp	__sdcc_program_startup
+                                    120 ;--------------------------------------------------------
+                                    121 ; Home
+                                    122 ;--------------------------------------------------------
+                                    123 	.area HOME
+                                    124 	.area HOME
+      000068                        125 __sdcc_program_startup:
+      000068 CCr01rCF         [ 2]  126 	jp	_main
+                                    127 ;	return from main will return to caller
+                                    128 ;--------------------------------------------------------
+                                    129 ; code
+                                    130 ;--------------------------------------------------------
+                                    131 	.area CODE
+                                    132 ;	main.c: 94: void TIM4_UPD_OVF_IRQHandler(void) __interrupt(23)
+                                    133 ;	-----------------------------------------
+                                    134 ;	 function TIM4_UPD_OVF_IRQHandler
+                                    135 ;	-----------------------------------------
+      000000                        136 _TIM4_UPD_OVF_IRQHandler:
+                                    137 ;	main.c: 96: TIM4_SR &= ~0x01;   /* acquitter le flag UIF */
+      000000 72 11 53 44      [ 1]  138 	bres	0x5344, #0
+                                    139 ;	main.c: 97: tick_ms++;
+      000004 CEu00u02         [ 2]  140 	ldw	x, _tick_ms+2
+      000007 90 CEu00u00      [ 2]  141 	ldw	y, _tick_ms+0
+      00000B 5C               [ 1]  142 	incw	x
+      00000C 26 02            [ 1]  143 	jrne	00103$
+      00000E 90 5C            [ 1]  144 	incw	y
+      000010                        145 00103$:
+      000010 CFu00u02         [ 2]  146 	ldw	_tick_ms+2, x
+      000013 90 CFu00u00      [ 2]  147 	ldw	_tick_ms+0, y
+                                    148 ;	main.c: 98: }
+      000017 80               [11]  149 	iret
+                                    150 ;	main.c: 104: static uint32_t millis(void)
+                                    151 ;	-----------------------------------------
+                                    152 ;	 function millis
+                                    153 ;	-----------------------------------------
+      000018                        154 _millis:
+                                    155 ;	main.c: 107: disableInterrupts();
+      000018 9B               [ 1]  156 	sim
+                                    157 ;	main.c: 108: val = tick_ms;
+      000019 CEu00u02         [ 2]  158 	ldw	x, _tick_ms+2
+      00001C 90 CEu00u00      [ 2]  159 	ldw	y, _tick_ms+0
+                                    160 ;	main.c: 109: enableInterrupts();
+      000020 9A               [ 1]  161 	rim
+                                    162 ;	main.c: 110: return val;
+                                    163 ;	main.c: 111: }
+      000021 81               [ 4]  164 	ret
+                                    165 ;	main.c: 117: static void delay_ms(uint16_t ms)
+                                    166 ;	-----------------------------------------
+                                    167 ;	 function delay_ms
+                                    168 ;	-----------------------------------------
+      000022                        169 _delay_ms:
+      000022 52 0E            [ 2]  170 	sub	sp, #14
+      000024 1F 0D            [ 2]  171 	ldw	(0x0d, sp), x
+                                    172 ;	main.c: 119: uint32_t start = millis();
+      000026 CDr00r18         [ 4]  173 	call	_millis
+      000029 1F 03            [ 2]  174 	ldw	(0x03, sp), x
+      00002B 17 01            [ 2]  175 	ldw	(0x01, sp), y
+                                    176 ;	main.c: 120: while ((millis() - start) < ms) {
+      00002D                        177 00101$:
+      00002D CDr00r18         [ 4]  178 	call	_millis
+      000030 1F 0B            [ 2]  179 	ldw	(0x0b, sp), x
+      000032 17 09            [ 2]  180 	ldw	(0x09, sp), y
+      000034 1E 0B            [ 2]  181 	ldw	x, (0x0b, sp)
+      000036 72 F0 03         [ 2]  182 	subw	x, (0x03, sp)
+      000039 1F 07            [ 2]  183 	ldw	(0x07, sp), x
+      00003B 7B 0A            [ 1]  184 	ld	a, (0x0a, sp)
+      00003D 12 02            [ 1]  185 	sbc	a, (0x02, sp)
+      00003F 6B 06            [ 1]  186 	ld	(0x06, sp), a
+      000041 7B 09            [ 1]  187 	ld	a, (0x09, sp)
+      000043 12 01            [ 1]  188 	sbc	a, (0x01, sp)
+      000045 16 0D            [ 2]  189 	ldw	y, (0x0d, sp)
+      000047 17 0B            [ 2]  190 	ldw	(0x0b, sp), y
+      000049 5F               [ 1]  191 	clrw	x
+      00004A 1F 09            [ 2]  192 	ldw	(0x09, sp), x
+      00004C 88               [ 1]  193 	push	a
+      00004D 1E 08            [ 2]  194 	ldw	x, (0x08, sp)
+      00004F 13 0C            [ 2]  195 	cpw	x, (0x0c, sp)
+      000051 7B 07            [ 1]  196 	ld	a, (0x07, sp)
+      000053 12 0B            [ 1]  197 	sbc	a, (0x0b, sp)
+      000055 84               [ 1]  198 	pop	a
+      000056 12 09            [ 1]  199 	sbc	a, (0x09, sp)
+      000058 25 D3            [ 1]  200 	jrc	00101$
+                                    201 ;	main.c: 123: }
+      00005A 5B 0E            [ 2]  202 	addw	sp, #14
+      00005C 81               [ 4]  203 	ret
+                                    204 ;	main.c: 155: static void pin_low(uint8_t is_track)
+                                    205 ;	-----------------------------------------
+                                    206 ;	 function pin_low
+                                    207 ;	-----------------------------------------
+      00005D                        208 _pin_low:
+      00005D 88               [ 1]  209 	push	a
+      00005E 6B 01            [ 1]  210 	ld	(0x01, sp), a
+                                    211 ;	main.c: 158: PC_ODR &= ~(1 << KEY_TRACK_BIT);
+      000060 C6 50 0A         [ 1]  212 	ld	a, 0x500a
+                                    213 ;	main.c: 157: if (is_track) {
+      000063 0D 01            [ 1]  214 	tnz	(0x01, sp)
+      000065 27 0B            [ 1]  215 	jreq	00102$
+                                    216 ;	main.c: 158: PC_ODR &= ~(1 << KEY_TRACK_BIT);
+      000067 A4 EF            [ 1]  217 	and	a, #0xef
+      000069 C7 50 0A         [ 1]  218 	ld	0x500a, a
+                                    219 ;	main.c: 159: PC_DDR |=  (1 << KEY_TRACK_BIT);
+      00006C 72 18 50 0C      [ 1]  220 	bset	0x500c, #4
+      000070 20 09            [ 2]  221 	jra	00104$
+      000072                        222 00102$:
+                                    223 ;	main.c: 161: PC_ODR &= ~(1 << KEY_VOLDOWN_BIT);
+      000072 A4 F7            [ 1]  224 	and	a, #0xf7
+      000074 C7 50 0A         [ 1]  225 	ld	0x500a, a
+                                    226 ;	main.c: 162: PC_DDR |=  (1 << KEY_VOLDOWN_BIT);
+      000077 72 16 50 0C      [ 1]  227 	bset	0x500c, #3
+      00007B                        228 00104$:
+                                    229 ;	main.c: 164: }
+      00007B 84               [ 1]  230 	pop	a
+      00007C 81               [ 4]  231 	ret
+                                    232 ;	main.c: 166: static void pin_hiz(uint8_t is_track)
+                                    233 ;	-----------------------------------------
+                                    234 ;	 function pin_hiz
+                                    235 ;	-----------------------------------------
+      00007D                        236 _pin_hiz:
+      00007D 88               [ 1]  237 	push	a
+      00007E 6B 01            [ 1]  238 	ld	(0x01, sp), a
+                                    239 ;	main.c: 169: PC_DDR &= ~(1 << KEY_TRACK_BIT);
+      000080 C6 50 0C         [ 1]  240 	ld	a, 0x500c
+                                    241 ;	main.c: 168: if (is_track) {
+      000083 0D 01            [ 1]  242 	tnz	(0x01, sp)
+      000085 27 0B            [ 1]  243 	jreq	00102$
+                                    244 ;	main.c: 169: PC_DDR &= ~(1 << KEY_TRACK_BIT);
+      000087 A4 EF            [ 1]  245 	and	a, #0xef
+      000089 C7 50 0C         [ 1]  246 	ld	0x500c, a
+                                    247 ;	main.c: 170: PC_CR1 &= ~(1 << KEY_TRACK_BIT);
+      00008C 72 19 50 0D      [ 1]  248 	bres	0x500d, #4
+      000090 20 09            [ 2]  249 	jra	00104$
+      000092                        250 00102$:
+                                    251 ;	main.c: 172: PC_DDR &= ~(1 << KEY_VOLDOWN_BIT);
+      000092 A4 F7            [ 1]  252 	and	a, #0xf7
+      000094 C7 50 0C         [ 1]  253 	ld	0x500c, a
+                                    254 ;	main.c: 173: PC_CR1 &= ~(1 << KEY_VOLDOWN_BIT);
+      000097 72 17 50 0D      [ 1]  255 	bres	0x500d, #3
+      00009B                        256 00104$:
+                                    257 ;	main.c: 175: }
+      00009B 84               [ 1]  258 	pop	a
+      00009C 81               [ 4]  259 	ret
+                                    260 ;	main.c: 177: static void send_pulse(uint8_t is_track, uint16_t duration_ms)
+                                    261 ;	-----------------------------------------
+                                    262 ;	 function send_pulse
+                                    263 ;	-----------------------------------------
+      00009D                        264 _send_pulse:
+                                    265 ;	main.c: 179: pin_low(is_track);
+      00009D 88               [ 1]  266 	push	a
+      00009E 89               [ 2]  267 	pushw	x
+      00009F CDr00r5D         [ 4]  268 	call	_pin_low
+      0000A2 85               [ 2]  269 	popw	x
+                                    270 ;	main.c: 180: delay_ms(duration_ms);
+      0000A3 CDr00r22         [ 4]  271 	call	_delay_ms
+      0000A6 84               [ 1]  272 	pop	a
+                                    273 ;	main.c: 181: pin_hiz(is_track);
+                                    274 ;	main.c: 182: }
+      0000A7 CCr00r7D         [ 2]  275 	jp	_pin_hiz
+                                    276 ;	main.c: 188: static uint8_t button_fell(uint8_t reading,
+                                    277 ;	-----------------------------------------
+                                    278 ;	 function button_fell
+                                    279 ;	-----------------------------------------
+      0000AA                        280 _button_fell:
+      0000AA 52 0F            [ 2]  281 	sub	sp, #15
+      0000AC 6B 0F            [ 1]  282 	ld	(0x0f, sp), a
+      0000AE 1F 0D            [ 2]  283 	ldw	(0x0d, sp), x
+                                    284 ;	main.c: 193: uint32_t now = millis();
+      0000B0 CDr00r18         [ 4]  285 	call	_millis
+      0000B3 1F 03            [ 2]  286 	ldw	(0x03, sp), x
+      0000B5 17 01            [ 2]  287 	ldw	(0x01, sp), y
+                                    288 ;	main.c: 195: if (reading != *lastState)
+      0000B7 1E 0D            [ 2]  289 	ldw	x, (0x0d, sp)
+      0000B9 F6               [ 1]  290 	ld	a, (x)
+                                    291 ;	main.c: 196: *debounceTime = now;
+      0000BA 1E 12            [ 2]  292 	ldw	x, (0x12, sp)
+                                    293 ;	main.c: 195: if (reading != *lastState)
+      0000BC 11 0F            [ 1]  294 	cp	a, (0x0f, sp)
+      0000BE 27 07            [ 1]  295 	jreq	00102$
+                                    296 ;	main.c: 196: *debounceTime = now;
+      0000C0 16 03            [ 2]  297 	ldw	y, (0x03, sp)
+      0000C2 EF 02            [ 2]  298 	ldw	(0x2, x), y
+      0000C4 16 01            [ 2]  299 	ldw	y, (0x01, sp)
+      0000C6 FF               [ 2]  300 	ldw	(x), y
+      0000C7                        301 00102$:
+                                    302 ;	main.c: 199: if ((now - *debounceTime) > DEBOUNCE_DELAY) {
+      0000C7 90 93            [ 1]  303 	ldw	y, x
+      0000C9 90 EE 02         [ 2]  304 	ldw	y, (0x2, y)
+      0000CC 17 07            [ 2]  305 	ldw	(0x07, sp), y
+      0000CE FE               [ 2]  306 	ldw	x, (x)
+      0000CF 16 03            [ 2]  307 	ldw	y, (0x03, sp)
+      0000D1 72 F2 07         [ 2]  308 	subw	y, (0x07, sp)
+      0000D4 17 0B            [ 2]  309 	ldw	(0x0b, sp), y
+      0000D6 7B 02            [ 1]  310 	ld	a, (0x02, sp)
+      0000D8 89               [ 2]  311 	pushw	x
+      0000D9 12 02            [ 1]  312 	sbc	a, (2, sp)
+      0000DB 85               [ 2]  313 	popw	x
+      0000DC 6B 0A            [ 1]  314 	ld	(0x0a, sp), a
+      0000DE 7B 01            [ 1]  315 	ld	a, (0x01, sp)
+      0000E0 89               [ 2]  316 	pushw	x
+      0000E1 12 01            [ 1]  317 	sbc	a, (1, sp)
+      0000E3 85               [ 2]  318 	popw	x
+      0000E4 6B 09            [ 1]  319 	ld	(0x09, sp), a
+      0000E6 AE 00 32         [ 2]  320 	ldw	x, #0x0032
+      0000E9 13 0B            [ 2]  321 	cpw	x, (0x0b, sp)
+      0000EB 4F               [ 1]  322 	clr	a
+      0000EC 12 0A            [ 1]  323 	sbc	a, (0x0a, sp)
+      0000EE 4F               [ 1]  324 	clr	a
+      0000EF 12 09            [ 1]  325 	sbc	a, (0x09, sp)
+      0000F1 24 17            [ 1]  326 	jrnc	00108$
+                                    327 ;	main.c: 200: if (reading != *currentState) {
+      0000F3 1E 14            [ 2]  328 	ldw	x, (0x14, sp)
+      0000F5 F6               [ 1]  329 	ld	a, (x)
+      0000F6 11 0F            [ 1]  330 	cp	a, (0x0f, sp)
+      0000F8 27 10            [ 1]  331 	jreq	00108$
+                                    332 ;	main.c: 201: *currentState = reading;
+      0000FA 7B 0F            [ 1]  333 	ld	a, (0x0f, sp)
+      0000FC F7               [ 1]  334 	ld	(x), a
+                                    335 ;	main.c: 202: if (*currentState == 0) {
+      0000FD 0D 0F            [ 1]  336 	tnz	(0x0f, sp)
+      0000FF 26 09            [ 1]  337 	jrne	00108$
+                                    338 ;	main.c: 203: *lastState = reading;
+      000101 1E 0D            [ 2]  339 	ldw	x, (0x0d, sp)
+      000103 7B 0F            [ 1]  340 	ld	a, (0x0f, sp)
+      000105 F7               [ 1]  341 	ld	(x), a
+                                    342 ;	main.c: 204: return 1;
+      000106 A6 01            [ 1]  343 	ld	a, #0x01
+      000108 20 06            [ 2]  344 	jra	00109$
+      00010A                        345 00108$:
+                                    346 ;	main.c: 209: *lastState = reading;
+      00010A 1E 0D            [ 2]  347 	ldw	x, (0x0d, sp)
+      00010C 7B 0F            [ 1]  348 	ld	a, (0x0f, sp)
+      00010E F7               [ 1]  349 	ld	(x), a
+                                    350 ;	main.c: 210: return 0;
+      00010F 4F               [ 1]  351 	clr	a
+      000110                        352 00109$:
+                                    353 ;	main.c: 211: }
+      000110 1E 10            [ 2]  354 	ldw	x, (16, sp)
+      000112 5B 15            [ 2]  355 	addw	sp, #21
+      000114 FC               [ 2]  356 	jp	(x)
+                                    357 ;	main.c: 217: static uint8_t can_trigger(uint32_t *lastActionTime, uint16_t cooldown)
+                                    358 ;	-----------------------------------------
+                                    359 ;	 function can_trigger
+                                    360 ;	-----------------------------------------
+      000115                        361 _can_trigger:
+      000115 52 0C            [ 2]  362 	sub	sp, #12
+                                    363 ;	main.c: 220: if ((millis() - *lastActionTime) >= cooldown)
+      000117 89               [ 2]  364 	pushw	x
+      000118 CDr00r18         [ 4]  365 	call	_millis
+      00011B 1F 05            [ 2]  366 	ldw	(0x05, sp), x
+      00011D 85               [ 2]  367 	popw	x
+      00011E E6 03            [ 1]  368 	ld	a, (0x3, x)
+      000120 6B 08            [ 1]  369 	ld	(0x08, sp), a
+      000122 E6 02            [ 1]  370 	ld	a, (0x2, x)
+      000124 6B 07            [ 1]  371 	ld	(0x07, sp), a
+      000126 FE               [ 2]  372 	ldw	x, (x)
+      000127 1F 05            [ 2]  373 	ldw	(0x05, sp), x
+      000129 1E 03            [ 2]  374 	ldw	x, (0x03, sp)
+      00012B 72 F0 07         [ 2]  375 	subw	x, (0x07, sp)
+      00012E 90 9F            [ 1]  376 	ld	a, yl
+      000130 12 06            [ 1]  377 	sbc	a, (0x06, sp)
+      000132 6B 0A            [ 1]  378 	ld	(0x0a, sp), a
+      000134 90 9E            [ 1]  379 	ld	a, yh
+      000136 12 05            [ 1]  380 	sbc	a, (0x05, sp)
+      000138 16 0F            [ 2]  381 	ldw	y, (0x0f, sp)
+      00013A 17 07            [ 2]  382 	ldw	(0x07, sp), y
+      00013C 0F 06            [ 1]  383 	clr	(0x06, sp)
+      00013E 0F 05            [ 1]  384 	clr	(0x05, sp)
+      000140 88               [ 1]  385 	push	a
+      000141 13 08            [ 2]  386 	cpw	x, (0x08, sp)
+      000143 7B 0B            [ 1]  387 	ld	a, (0x0b, sp)
+      000145 12 07            [ 1]  388 	sbc	a, (0x07, sp)
+      000147 84               [ 1]  389 	pop	a
+      000148 12 05            [ 1]  390 	sbc	a, (0x05, sp)
+      00014A 25 03            [ 1]  391 	jrc	00102$
+                                    392 ;	main.c: 221: return 1;
+      00014C A6 01            [ 1]  393 	ld	a, #0x01
+                                    394 ;	main.c: 222: return 0;
+      00014E 21                     395 	.byte 0x21
+      00014F                        396 00102$:
+      00014F 4F               [ 1]  397 	clr	a
+      000150                        398 00103$:
+                                    399 ;	main.c: 223: }
+      000150 1E 0D            [ 2]  400 	ldw	x, (13, sp)
+      000152 5B 10            [ 2]  401 	addw	sp, #16
+      000154 FC               [ 2]  402 	jp	(x)
+                                    403 ;	main.c: 233: static void tim4_init(void)
+                                    404 ;	-----------------------------------------
+                                    405 ;	 function tim4_init
+                                    406 ;	-----------------------------------------
+      000155                        407 _tim4_init:
+                                    408 ;	main.c: 235: TIM4_CR1  = 0x00;
+      000155 35 00 53 40      [ 1]  409 	mov	0x5340+0, #0x00
+                                    410 ;	main.c: 236: TIM4_PSCR = 0x03;   /* prescaler /8 (2^3)           */
+      000159 35 03 53 47      [ 1]  411 	mov	0x5347+0, #0x03
+                                    412 ;	main.c: 237: TIM4_ARR  = 62;     /* auto-reload : compte de 0→62 */
+      00015D 35 3E 53 48      [ 1]  413 	mov	0x5348+0, #0x3e
+                                    414 ;	main.c: 238: TIM4_IER  = 0x01;   /* interruption débordement     */
+      000161 35 01 53 43      [ 1]  415 	mov	0x5343+0, #0x01
+                                    416 ;	main.c: 239: TIM4_SR   = 0x00;   /* acquitter flag résiduel      */
+      000165 35 00 53 44      [ 1]  417 	mov	0x5344+0, #0x00
+                                    418 ;	main.c: 240: TIM4_CR1  = 0x01;   /* démarrer (CEN=1)             */
+      000169 35 01 53 40      [ 1]  419 	mov	0x5340+0, #0x01
+                                    420 ;	main.c: 241: }
+      00016D 81               [ 4]  421 	ret
+                                    422 ;	main.c: 247: static void hw_init(void)
+                                    423 ;	-----------------------------------------
+                                    424 ;	 function hw_init
+                                    425 ;	-----------------------------------------
+      00016E                        426 _hw_init:
+                                    427 ;	main.c: 250: CLK_CKDIVR = 0x1B;
+      00016E 35 1B 50 C6      [ 1]  428 	mov	0x50c6+0, #0x1b
+                                    429 ;	main.c: 258: PA_ODR &= ~((1 << 1) | (1 << 2) | (1 << 3));
+      000172 C6 50 00         [ 1]  430 	ld	a, 0x5000
+      000175 A4 F1            [ 1]  431 	and	a, #0xf1
+      000177 C7 50 00         [ 1]  432 	ld	0x5000, a
+                                    433 ;	main.c: 259: PA_DDR |=   (1 << 1) | (1 << 2) | (1 << 3);
+      00017A C6 50 02         [ 1]  434 	ld	a, 0x5002
+      00017D AA 0E            [ 1]  435 	or	a, #0x0e
+      00017F C7 50 02         [ 1]  436 	ld	0x5002, a
+                                    437 ;	main.c: 260: PA_CR1 |=   (1 << 1) | (1 << 2) | (1 << 3);
+      000182 C6 50 03         [ 1]  438 	ld	a, 0x5003
+      000185 AA 0E            [ 1]  439 	or	a, #0x0e
+      000187 C7 50 03         [ 1]  440 	ld	0x5003, a
+                                    441 ;	main.c: 261: PA_CR2 &=  ~((1 << 1) | (1 << 2) | (1 << 3));  /* pas d'IRQ externe */
+      00018A C6 50 04         [ 1]  442 	ld	a, 0x5004
+      00018D A4 F1            [ 1]  443 	and	a, #0xf1
+      00018F C7 50 04         [ 1]  444 	ld	0x5004, a
+                                    445 ;	main.c: 263: PD_ODR &= ~(1 << 6);
+      000192 72 1D 50 10      [ 1]  446 	bres	0x5010, #6
+                                    447 ;	main.c: 264: PD_DDR |=  (1 << 6);
+      000196 72 1C 50 13      [ 1]  448 	bset	0x5013, #6
+                                    449 ;	main.c: 265: PD_CR1 |=  (1 << 6);
+      00019A 72 1C 50 14      [ 1]  450 	bset	0x5014, #6
+                                    451 ;	main.c: 266: PD_CR2 &= ~(1 << 6);
+      00019E 72 1D 50 15      [ 1]  452 	bres	0x5015, #6
+                                    453 ;	main.c: 272: PD_DDR &= ~(1 << BTN_NEXT_BIT);
+      0001A2 72 1B 50 13      [ 1]  454 	bres	0x5013, #5
+                                    455 ;	main.c: 273: PD_CR1 |=  (1 << BTN_NEXT_BIT);
+      0001A6 72 1A 50 14      [ 1]  456 	bset	0x5014, #5
+                                    457 ;	main.c: 274: PD_CR2 &= ~(1 << BTN_NEXT_BIT);
+      0001AA 72 1B 50 15      [ 1]  458 	bres	0x5015, #5
+                                    459 ;	main.c: 280: PC_DDR &= ~((1 << BTN_VOLD_BIT) | (1 << KEY_VOLDOWN_BIT) | (1 << KEY_TRACK_BIT));
+      0001AE C6 50 0C         [ 1]  460 	ld	a, 0x500c
+      0001B1 A4 C7            [ 1]  461 	and	a, #0xc7
+      0001B3 C7 50 0C         [ 1]  462 	ld	0x500c, a
+                                    463 ;	main.c: 281: PC_CR1 |=  (1 << BTN_VOLD_BIT);
+      0001B6 72 1A 50 0D      [ 1]  464 	bset	0x500d, #5
+                                    465 ;	main.c: 282: PC_CR1 &= ~((1 << KEY_VOLDOWN_BIT) | (1 << KEY_TRACK_BIT));
+      0001BA C6 50 0D         [ 1]  466 	ld	a, 0x500d
+      0001BD A4 E7            [ 1]  467 	and	a, #0xe7
+      0001BF C7 50 0D         [ 1]  468 	ld	0x500d, a
+                                    469 ;	main.c: 283: PC_CR2 &= ~((1 << BTN_VOLD_BIT) | (1 << KEY_VOLDOWN_BIT) | (1 << KEY_TRACK_BIT));
+      0001C2 C6 50 0E         [ 1]  470 	ld	a, 0x500e
+      0001C5 A4 C7            [ 1]  471 	and	a, #0xc7
+      0001C7 C7 50 0E         [ 1]  472 	ld	0x500e, a
+                                    473 ;	main.c: 286: tim4_init();
+      0001CA CDr01r55         [ 4]  474 	call	_tim4_init
+                                    475 ;	main.c: 289: enableInterrupts();
+      0001CD 9A               [ 1]  476 	rim
+                                    477 ;	main.c: 290: }
+      0001CE 81               [ 4]  478 	ret
+                                    479 ;	main.c: 296: void main(void)
+                                    480 ;	-----------------------------------------
+                                    481 ;	 function main
+                                    482 ;	-----------------------------------------
+      0001CF                        483 _main:
+                                    484 ;	main.c: 298: hw_init();
+      0001CF CDr01r6E         [ 4]  485 	call	_hw_init
+                                    486 ;	main.c: 300: lastStateNext = BTN_NEXT_READ();
+      0001D2 C6 50 11         [ 1]  487 	ld	a, 0x5011
+      0001D5 4E               [ 1]  488 	swap	a
+      0001D6 44               [ 1]  489 	srl	a
+      0001D7 A4 01            [ 1]  490 	and	a, #0x01
+      0001D9 C7u00u04         [ 1]  491 	ld	_lastStateNext+0, a
+                                    492 ;	main.c: 301: btnStateNext  = lastStateNext;
+      0001DC 55u00u04u00u05   [ 1]  493 	mov	_btnStateNext+0, _lastStateNext+0
+                                    494 ;	main.c: 302: lastStateVolD = BTN_VOLD_READ();
+      0001E1 C6 50 0B         [ 1]  495 	ld	a, 0x500b
+      0001E4 4E               [ 1]  496 	swap	a
+      0001E5 44               [ 1]  497 	srl	a
+      0001E6 A4 01            [ 1]  498 	and	a, #0x01
+      0001E8 C7u00u0E         [ 1]  499 	ld	_lastStateVolD+0, a
+                                    500 ;	main.c: 303: btnStateVolD  = lastStateVolD;
+      0001EB 55u00u0Eu00u0F   [ 1]  501 	mov	_btnStateVolD+0, _lastStateVolD+0
+                                    502 ;	main.c: 305: debounceNext   = millis();
+      0001F0 CDr00r18         [ 4]  503 	call	_millis
+      0001F3 CFu00u08         [ 2]  504 	ldw	_debounceNext+2, x
+      0001F6 90 CFu00u06      [ 2]  505 	ldw	_debounceNext+0, y
+                                    506 ;	main.c: 306: debounceVolD   = millis();
+      0001FA CDr00r18         [ 4]  507 	call	_millis
+      0001FD CFu00u12         [ 2]  508 	ldw	_debounceVolD+2, x
+      000200 90 CFu00u10      [ 2]  509 	ldw	_debounceVolD+0, y
+                                    510 ;	main.c: 308: delay_ms(MP3_BOOT_DELAY);
+      000204 AE 03 E8         [ 2]  511 	ldw	x, #0x03e8
+      000207 CDr00r22         [ 4]  512 	call	_delay_ms
+                                    513 ;	main.c: 313: lastActionNext = millis() - COOLDOWN_NEXT;
+      00020A CDr00r18         [ 4]  514 	call	_millis
+      00020D 1D 0F A0         [ 2]  515 	subw	x, #0x0fa0
+      000210 24 02            [ 1]  516 	jrnc	00149$
+      000212 90 5A            [ 2]  517 	decw	y
+      000214                        518 00149$:
+      000214 CFu00u0C         [ 2]  519 	ldw	_lastActionNext+2, x
+      000217 90 CFu00u0A      [ 2]  520 	ldw	_lastActionNext+0, y
+                                    521 ;	main.c: 314: lastActionVolD = millis() - COOLDOWN_VOLD;
+      00021B CDr00r18         [ 4]  522 	call	_millis
+      00021E 1D 07 D0         [ 2]  523 	subw	x, #0x07d0
+      000221 24 02            [ 1]  524 	jrnc	00150$
+      000223 90 5A            [ 2]  525 	decw	y
+      000225                        526 00150$:
+      000225 CFu00u16         [ 2]  527 	ldw	_lastActionVolD+2, x
+      000228 90 CFu00u14      [ 2]  528 	ldw	_lastActionVolD+0, y
+      00022C                        529 00110$:
+                                    530 ;	main.c: 323: &lastStateNext, &debounceNext, &btnStateNext)) {
+      00022C AEr00r04         [ 2]  531 	ldw	x, #_lastStateNext+0
+                                    532 ;	main.c: 322: if (button_fell(BTN_NEXT_READ(),
+      00022F C6 50 11         [ 1]  533 	ld	a, 0x5011
+      000232 4E               [ 1]  534 	swap	a
+      000233 44               [ 1]  535 	srl	a
+      000234 A4 01            [ 1]  536 	and	a, #0x01
+      000236 4Br05            [ 1]  537 	push	#<(_btnStateNext+0)
+      000238 4Bs00            [ 1]  538 	push	#((_btnStateNext+0) >> 8)
+      00023A 4Br06            [ 1]  539 	push	#<(_debounceNext+0)
+      00023C 4Bs00            [ 1]  540 	push	#((_debounceNext+0) >> 8)
+      00023E CDr00rAA         [ 4]  541 	call	_button_fell
+      000241 4D               [ 1]  542 	tnz	a
+      000242 27 1F            [ 1]  543 	jreq	00104$
+                                    544 ;	main.c: 324: if (can_trigger(&lastActionNext, COOLDOWN_NEXT)) {
+      000244 4B A0            [ 1]  545 	push	#0xa0
+      000246 4B 0F            [ 1]  546 	push	#0x0f
+      000248 AEr00r0A         [ 2]  547 	ldw	x, #(_lastActionNext+0)
+      00024B CDr01r15         [ 4]  548 	call	_can_trigger
+      00024E 4D               [ 1]  549 	tnz	a
+      00024F 27 12            [ 1]  550 	jreq	00104$
+                                    551 ;	main.c: 325: send_pulse(1, PULSE_NEXT);
+      000251 AE 00 FA         [ 2]  552 	ldw	x, #0x00fa
+      000254 A6 01            [ 1]  553 	ld	a, #0x01
+      000256 CDr00r9D         [ 4]  554 	call	_send_pulse
+                                    555 ;	main.c: 326: lastActionNext = millis();
+      000259 CDr00r18         [ 4]  556 	call	_millis
+      00025C CFu00u0C         [ 2]  557 	ldw	_lastActionNext+2, x
+      00025F 90 CFu00u0A      [ 2]  558 	ldw	_lastActionNext+0, y
+      000263                        559 00104$:
+                                    560 ;	main.c: 332: &lastStateVolD, &debounceVolD, &btnStateVolD)) {
+      000263 AEr00r0E         [ 2]  561 	ldw	x, #_lastStateVolD+0
+                                    562 ;	main.c: 331: if (button_fell(BTN_VOLD_READ(),
+      000266 C6 50 0B         [ 1]  563 	ld	a, 0x500b
+      000269 4E               [ 1]  564 	swap	a
+      00026A 44               [ 1]  565 	srl	a
+      00026B A4 01            [ 1]  566 	and	a, #0x01
+      00026D 4Br0F            [ 1]  567 	push	#<(_btnStateVolD+0)
+      00026F 4Bs00            [ 1]  568 	push	#((_btnStateVolD+0) >> 8)
+      000271 4Br10            [ 1]  569 	push	#<(_debounceVolD+0)
+      000273 4Bs00            [ 1]  570 	push	#((_debounceVolD+0) >> 8)
+      000275 CDr00rAA         [ 4]  571 	call	_button_fell
+      000278 4D               [ 1]  572 	tnz	a
+      000279 27 1E            [ 1]  573 	jreq	00108$
+                                    574 ;	main.c: 333: if (can_trigger(&lastActionVolD, COOLDOWN_VOLD)) {
+      00027B 4B D0            [ 1]  575 	push	#0xd0
+      00027D 4B 07            [ 1]  576 	push	#0x07
+      00027F AEr00r14         [ 2]  577 	ldw	x, #(_lastActionVolD+0)
+      000282 CDr01r15         [ 4]  578 	call	_can_trigger
+      000285 4D               [ 1]  579 	tnz	a
+      000286 27 11            [ 1]  580 	jreq	00108$
+                                    581 ;	main.c: 334: send_pulse(0, PULSE_VOL_DOWN);
+      000288 AE 05 DC         [ 2]  582 	ldw	x, #0x05dc
+      00028B 4F               [ 1]  583 	clr	a
+      00028C CDr00r9D         [ 4]  584 	call	_send_pulse
+                                    585 ;	main.c: 335: lastActionVolD = millis();
+      00028F CDr00r18         [ 4]  586 	call	_millis
+      000292 CFu00u16         [ 2]  587 	ldw	_lastActionVolD+2, x
+      000295 90 CFu00u14      [ 2]  588 	ldw	_lastActionVolD+0, y
+      000299                        589 00108$:
+                                    590 ;	main.c: 339: delay_ms(5);
+      000299 AE 00 05         [ 2]  591 	ldw	x, #0x0005
+      00029C CDr00r22         [ 4]  592 	call	_delay_ms
+      00029F 20 8B            [ 2]  593 	jra	00110$
+                                    594 ;	main.c: 341: }
+      0002A1 81               [ 4]  595 	ret
+                                    596 	.area CODE
+                                    597 	.area CONST
+                                    598 	.area INITIALIZER
+      000000                        599 __xinit__tick_ms:
+      000000 00 00 00 00            600 	.byte #0x00, #0x00, #0x00, #0x00	; 0
+      000004                        601 __xinit__lastStateNext:
+      000004 01                     602 	.db #0x01	; 1
+      000005                        603 __xinit__btnStateNext:
+      000005 01                     604 	.db #0x01	; 1
+      000006                        605 __xinit__debounceNext:
+      000006 00 00 00 00            606 	.byte #0x00, #0x00, #0x00, #0x00	; 0
+      00000A                        607 __xinit__lastActionNext:
+      00000A 00 00 00 00            608 	.byte #0x00, #0x00, #0x00, #0x00	; 0
+      00000E                        609 __xinit__lastStateVolD:
+      00000E 01                     610 	.db #0x01	; 1
+      00000F                        611 __xinit__btnStateVolD:
+      00000F 01                     612 	.db #0x01	; 1
+      000010                        613 __xinit__debounceVolD:
+      000010 00 00 00 00            614 	.byte #0x00, #0x00, #0x00, #0x00	; 0
+      000014                        615 __xinit__lastActionVolD:
+      000014 00 00 00 00            616 	.byte #0x00, #0x00, #0x00, #0x00	; 0
+                                    617 	.area CABS (ABS)
