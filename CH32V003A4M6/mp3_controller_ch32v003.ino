@@ -1,27 +1,16 @@
 /*
  * Contrôleur MP3 Minimaliste — CH32V003A4M6
-<<<<<<< Updated upstream
  * Transposé depuis ATtiny85 v3.4
-=======
- * Transposé depuis ATtiny85 v3.4 avec Claude sonnet 4.6
->>>>>>> Stashed changes
  * Architecture: RISC-V 32 bits, 48 MHz (réduit à ~1 MHz via prescaler)
  *
  * === MAPPING DES BROCHES ===
  *
  * | Fonction        | ATtiny85 | CH32V003A4M6 | Broche physique |
  * |-----------------|----------|--------------|-----------------|
-<<<<<<< Updated upstream
  * | Bouton Next     | PB3      | C1 (PC1)     | pin 1           |
  * | Bouton Vol-     | PB4      | C2 (PC2)     | pin 2           |
  * | Sortie KEY      | PB2      | C3 (PC3)     | pin 3           |
  * | Sortie KEY_VOL- | PB0      | C4 (PC4)     | pin 4           |
-=======
- * | Bouton Next     | PB3      | PC1          | pin 1           |
- * | Bouton Vol-     | PB4      | PC2          | pin 2           |
- * | Sortie KEY      | PB2      | PC3          | pin 3           |
- * | Sortie KEY_VOL- | PB0      | PC4          | pin 4           |
->>>>>>> Stashed changes
  *
  * === NOTES D'ADAPTATION ===
  * - Le CH32V003 n'a pas de mode 1 MHz natif. On garde 48 MHz mais
@@ -39,17 +28,10 @@
 
 // --- Broches (numérotation Arduino, core CH32 WCH) ---
 // PD4 = Arduino pin 4 sur CH32V003 (à vérifier selon ton core)
-<<<<<<< Updated upstream
 const uint8_t BTN_NEXT    = C1;   // Bouton Next Track (entrée, pull-up)
 const uint8_t BTN_VOL_D   = C2;   // Bouton Volume -   (entrée, pull-up)
 const uint8_t KEY_TRACK   = C3;   // Sortie vers KEY du MP3 (Next / Vol+)
 const uint8_t KEY_VOLDOWN = C4;   // Sortie vers KEY_VOLDOWN du MP3
-=======
-const uint8_t BTN_NEXT    = PC1;   // Bouton Next Track (entrée, pull-up)
-const uint8_t BTN_VOL_D   = PC2;   // Bouton Volume -   (entrée, pull-up)
-const uint8_t KEY_TRACK   = PC3;   // Sortie vers KEY du MP3 (Next / Vol+)
-const uint8_t KEY_VOLDOWN = PC4;   // Sortie vers KEY_VOLDOWN du MP3
->>>>>>> Stashed changes
 
 // --- Durées de pulse (inchangées) ---
 const uint16_t PULSE_NEXT     = 250;   // ms — next track sur KEY_TRACK
@@ -85,13 +67,8 @@ void setPinLow(uint8_t pin) {
 }
 
 void setPinHighZ(uint8_t pin) {
-<<<<<<< Updated upstream
     digitalWrite(pin, LOW);   // forcer LOW avant de passer en haute impédance
     pinMode(pin, INPUT);      // la résistance de tirage du module MP3 remonte la ligne
-=======
-    pinMode(pin, INPUT);      // haute impédance — la résistance de tirage
-    digitalWrite(pin, LOW);   // du module MP3 remonte la ligne
->>>>>>> Stashed changes
 }
 
 void setPinInput(uint8_t pin) {

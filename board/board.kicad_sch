@@ -3522,7 +3522,21 @@
 	)
 	(wire
 		(pts
+<<<<<<< Updated upstream
 			(xy 328.93 209.55) (xy 347.98 209.55)
+=======
+			(xy 171.45 124.46) (xy 171.45 135.89)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "09db4f64-358c-4fcb-a1c2-93b59e9e6259")
+	)
+	(wire
+		(pts
+			(xy 242.57 151.13) (xy 261.62 151.13)
+>>>>>>> Stashed changes
 		)
 		(stroke
 			(width 0)
@@ -3652,7 +3666,21 @@
 	)
 	(wire
 		(pts
+<<<<<<< Updated upstream
 			(xy 143.51 39.37) (xy 146.05 39.37)
+=======
+			(xy 167.64 124.46) (xy 171.45 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "400ba586-5d61-491d-8a4c-c6360ac043ef")
+	)
+	(wire
+		(pts
+			(xy 92.71 27.94) (xy 95.25 27.94)
+>>>>>>> Stashed changes
 		)
 		(stroke
 			(width 0)
@@ -3702,7 +3730,21 @@
 	)
 	(wire
 		(pts
+<<<<<<< Updated upstream
 			(xy 130.81 97.79) (xy 156.21 97.79)
+=======
+			(xy 255.27 80.01) (xy 264.16 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "57676764-8511-4b47-a229-65ebdee68ae6")
+	)
+	(wire
+		(pts
+			(xy 80.01 86.36) (xy 105.41 86.36)
+>>>>>>> Stashed changes
 		)
 		(stroke
 			(width 0)
@@ -6221,7 +6263,77 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x01_Pin")
+<<<<<<< Updated upstream
 		(at 104.14 102.87 0)
+=======
+		(at 269.24 80.01 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "64994885-994f-499b-9802-058e1c35a505")
+		(property "Reference" "J16"
+			(at 268.605 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SWDIO"
+			(at 268.605 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
+			(at 269.24 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 269.24 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 269.24 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6e0fcc44-5857-4f8c-9be8-eed8bbab908a")
+		)
+		(instances
+			(project "board"
+				(path "/1d4ba15b-5ce7-48af-a486-6050b996f974"
+					(reference "J16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 53.34 91.44 0)
+>>>>>>> Stashed changes
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6954,7 +7066,77 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x01_Pin")
+<<<<<<< Updated upstream
 		(at 111.76 179.07 180)
+=======
+		(at 176.53 135.89 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c2df7bf5-7817-425b-badc-04fde813d0c1")
+		(property "Reference" "J19"
+			(at 175.895 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SWIM"
+			(at 175.895 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
+			(at 176.53 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 176.53 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 176.53 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ea3ee7df-11c6-433a-a6ce-dddd001bc3ed")
+		)
+		(instances
+			(project "board"
+				(path "/1d4ba15b-5ce7-48af-a486-6050b996f974"
+					(reference "J19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 60.96 167.64 180)
+>>>>>>> Stashed changes
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
