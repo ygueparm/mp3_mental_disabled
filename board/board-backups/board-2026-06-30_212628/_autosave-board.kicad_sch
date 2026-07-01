@@ -7067,7 +7067,7 @@
 				)
 			)
 		)
-		(property "Value" "SWDIO"
+		(property "Value" "SWIM"
 			(at 175.895 133.35 0)
 			(effects
 				(font
