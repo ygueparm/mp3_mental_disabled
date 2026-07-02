@@ -77,7 +77,7 @@ The cover is closed with four captive flat screws located outside the sealed are
    
 
 
-<img src="plan.jpg" width="400" alt="blue print">
+<img src="cablage/cablage.jpg" width="500" alt="blue print">
 
 Why choose the Tiny85? I always feel a bit bad using only 4 pins out of 40 on a microcontroller. Low power consumption, 1MHz speed, variable supply voltage. Very flexible to use and very cheap. A bit difficult to program because you need an Arduino in ISP mode as an interface between the Tiny and Arduino IDE.
 

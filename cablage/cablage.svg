@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Creator: fig2dev Version 3.2.9a -->
+<!-- CreationDate: 2026-07-02 22:43:08 -->
+<!-- Magnification: 1.05 -->
+<svg	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	width="1278pt" height="1608pt"
+	viewBox="-6108 -13320 20282 25515">
+<g fill="none">
+<!-- Line -->
+<rect x="6840" y="-6210" width="2610" height="720"
+	stroke="#000000" stroke-width="45px"/>
+<!-- Text -->
+<text xml:space="preserve" x="7245" y="-5760" fill="#000000" font-family="Helvetica" font-style="normal" font-weight="bold" font-size="283" text-anchor="start">R = 4.7k</text>
+<!-- Line -->
+<rect x="6705" y="-7740" width="2610" height="720"
+	stroke="#000000" stroke-width="45px"/>
+<!-- Text -->
+<text xml:space="preserve" x="7110" y="-7290" fill="#000000" font-family="Helvetica" font-style="normal" font-weight="bold" font-size="283" text-anchor="start">R = 4.7k</text>
+<!-- Circle -->
+<defs>
+<circle cx="4950" cy="7065" r="90" id="p0"/>
+<pattern id="tile0" patternUnits="userSpaceOnUse"
+	x="0" y="0" width="134" height="67">
+<g stroke-width="7.5" stroke="#00ff00" fill="none">
+<path d="M -7,30 73,70 M 61,-3 141,37"/>
+</g>
+</pattern>
+</defs>
+<use xlink:href="#p0" fill="#00ff00"/>
+<use xlink:href="#p0" fill="url(#tile0)"
+	stroke="#00ff00" stroke-width="45px"/>
+<!-- Circle -->
+<defs>
+<circle cx="10035" cy="-675" r="191" id="p1"/>
+<pattern id="tile1" patternUnits="userSpaceOnUse"
+	x="0" y="0" width="134" height="67">
+<g stroke-width="7.5" stroke="#ff00ff" fill="none">
+<path d="M -7,30 73,70 M 61,-3 141,37"/>
+</g>
+</pattern>
+</defs>
+<use xlink:href="#p1" fill="#ff00ff"/>
+<use xlink:href="#p1" fill="url(#tile1)"
+	stroke="#ff00ff" stroke-width="45px"/>
+<!-- Circle -->
+<defs>
+<circle cx="10530" cy="-1665" r="191" id="p2"/>
+<pattern id="tile2" patternUnits="userSpaceOnUse"
+	x="0" y="0" width="134" height="67">
+<g stroke-width="7.5" stroke="#ff00ff" fill="none">
+<path d="M -7,30 73,70 M 61,-3 141,37"/>
+</g>
+</pattern>
+</defs>
+<use xlink:href="#p2" fill="#ff00ff"/>
+<use xlink:href="#p2" fill="url(#tile2)"
+	stroke="#ff00ff" stroke-width="45px"/>
+<!-- Circle -->
+<circle cx="13950" cy="-3015" r="101" fill="#000000"
+	stroke="#000000" stroke-width="45px"/>
+<!-- Circle -->
+<circle cx="9045" cy="-2655" r="101" fill="#000000"
+	stroke="#000000" stroke-width="45px"/>
+<!-- Circle -->
+<circle cx="7965" cy="2835" r="186" fill="#ff0000"
+	stroke="#000000" stroke-width="45px"/>
+<!-- Circle -->
+<circle cx="6390" cy="-4230" r="186" fill="#ff0000"
+	stroke="#000000" stroke-width="45px"/>
+<!-- Circle -->
+<circle cx="6345" cy="-5805" r="186" fill="#ff0000"
+	stroke="#000000" stroke-width="45px"/>
+<!-- Circle -->
+<circle cx="4275" cy="8505" r="162" fill="#ff00ff"
+	stroke="#000000" stroke-width="45px"/>
+<!-- Image -->
+<image xlink:href="file:bms.jpg" preserveAspectRatio="none"
+transform="rotate(270 -1260 -3938)"
+x="-2340" y="-4680" width="2160" height="1485"/>
+<!-- Image -->
+<image xlink:href="file:18650.jpg" preserveAspectRatio="none"
+transform="rotate(90 -538 -926)"
+x="-1485" y="-1311" width="1895" height="771"/>
+<!-- Image -->
+<image xlink:href="file:stepupboost.jpg" preserveAspectRatio="none"
+x="2845" y="-4455" width="3095" height="1596"/>
+<!-- Image -->
+<image xlink:href="file:attiny85.jpg" preserveAspectRatio="none"
+x="5277" y="-164" width="3048" height="2774"/>
+<!-- Image -->
+<image xlink:href="file:usbc-prise.jpg" preserveAspectRatio="none"
+x="-6108" y="-450" width="3228" height="2600"/>
+<!-- Image -->
+<image xlink:href="file:mp3module.jpg" preserveAspectRatio="none"
+x="-990" y="4275" width="6858" height="5715"/>
+<!-- Line -->
+<polyline points=" 315,-990 315,-4185 -495,-4185"
+	stroke="#ff0000" stroke-width="45px"/>
+<!-- Line -->
+<polyline points=" 5715,-4230 9270,-4230 9270,2745 7875,2745 7200,2070"
+	stroke="#ff0000" stroke-width="45px"/>
+<!-- Line -->
+<polyline points=" 1395,7830 -1665,8595"
+	stroke="#ff0000" stroke-width="45px"/>
+<!-- Line -->
+<polyline points=" -1665,8640 -1665,3600 8010,3600 8010,2745"
+	stroke="#ff0000" stroke-width="45px"/>
+<!-- Line -->
+<polyline points=" -5445,-450 -5445,-4320 -3015,-4320 -2745,-4410 -2115,-4410"
+	stroke="#ff0000" stroke-width="45px"/>
+<!-- Line -->
+<polyline points=" -5040,-405 -5040,-3420 -2070,-3420"
+	stroke="#000000" stroke-width="45px"/>
+<!-- Line -->
+<polyline points=" -1440,-900 -1440,-2295 90,-2295 90,-3690 -495,-3690"
+	stroke="#000000" stroke-width="45px"/>
+<!-- Line -->
+<polyline points=" 5715,-3105 9000,-3105 9000,2430 8055,2430 7335,1710"
+	stroke="#000000" stroke-width="45px"/>
+<!-- Line -->
+<polyline points=" 7875,855 8325,405 8685,765 8685,7650 6075,7650 4995,7110"
+	stroke="#00ff00" stroke-width="45px"/>
+<!-- Line -->
+<polyline points=" 7380,495 7965,-90 8910,540 8910,8505 5310,8505 4500,7695"
+	stroke="#00ff00" stroke-width="45px"/>
+<!-- Image -->
+<image xlink:href="file:hautparleur.jpg" preserveAspectRatio="none"
+x="5400" y="10080" width="1935" height="2115"/>
+<!-- Image -->
+<image xlink:href="file:boutonrouge.jpg" preserveAspectRatio="none"
+x="11295" y="-3555" width="1667" height="2349"/>
+<!-- Image -->
+<image xlink:href="file:boutonrouge.jpg" preserveAspectRatio="none"
+x="11475" y="171" width="1667" height="2349"/>
+<!-- Line -->
+<polyline points=" 7200,450 8415,-1170 12015,-2070"
+	stroke="#ff00ff" stroke-width="45px"/>
+<!-- Line -->
+<polyline points=" 6975,270 8325,-1530 9585,-1845 10935,2205 12375,1845"
+	stroke="#ff00ff" stroke-width="45px"/>
+<!-- Line -->
+<polyline points=" 6390,-4230 6390,-7335 6705,-7335"
+	stroke="#ff0000" stroke-width="45px"/>
+<!-- Line -->
+<polyline points=" 6345,-5760 6840,-5760"
+	stroke="#ff0000" stroke-width="45px"/>
+<!-- Line -->
+<polyline points=" 12870,-1890 13995,-3015 13995,-3915 10980,-3915 10980,-2700 9045,-2700"
+	stroke="#000000" stroke-width="45px"/>
+<!-- Line -->
+<polyline points=" 12915,1890 14130,1080 14130,-2160 13905,-3060"
+	stroke="#000000" stroke-width="45px"/>
+<!-- Line -->
+<polyline points=" 10485,-1710 10485,-7380 9315,-7380"
+	stroke="#ff00ff" stroke-width="45px"/>
+<!-- Line -->
+<polyline points=" 10035,-450 10035,-5985 9495,-5985"
+	stroke="#ff00ff" stroke-width="45px"/>
+<!-- Line -->
+<polyline points=" 4230,8505 6885,11160"
+	stroke="#ff00ff" stroke-width="45px"/>
+<!-- Line -->
+<polyline points=" 3825,9045 6210,11430"
+	stroke="#ff00ff" stroke-width="45px"/>
+<!-- Image -->
+<image xlink:href="file:boutononoff.jpg" preserveAspectRatio="none"
+x="-450" y="-12420" width="3810" height="5180"/>
+<!-- Line -->
+<polyline points=" -450,-4455 765,-8100"
+	stroke="#ff0000" stroke-width="45px"/>
+<!-- Line -->
+<polyline points=" 2340,-8460 4095,-9045 4095,-6390 1755,-6390 1755,-3150"
+	stroke="#ff0000" stroke-width="45px"/>
+<!-- Line -->
+<polyline points=" 1755,-3150 3195,-3150"
+	stroke="#ff0000" stroke-width="45px"/>
+<!-- Line -->
+<polyline points=" 6210,-3105 6210,0 3690,0 3690,1845 -2340,1845 -2340,9810 720,7515"
+	stroke="#000000" stroke-width="45px"/>
+<!-- Line -->
+<polyline points=" -450,-3420 2250,-3420 2250,-3690 3150,-3690"
+	stroke="#000000" stroke-width="45px"/>
+<!-- Text -->
+<text xml:space="preserve" x="3150" y="-2205" fill="#000000" font-family="Helvetica" font-style="normal" font-weight="bold" font-size="450" text-anchor="start">Step up 5V</text>
+<!-- Text -->
+<text xml:space="preserve" x="-1215" y="0" fill="#000000" font-family="Helvetica" font-style="normal" font-weight="bold" font-size="450" text-anchor="start">li ion 18650</text>
+<!-- Text -->
+<text xml:space="preserve" x="-990" y="10800" fill="#000000" font-family="Helvetica" font-style="normal" font-weight="bold" font-size="450" text-anchor="start">Mp3 board</text>
+<!-- Text -->
+<text xml:space="preserve" x="5175" y="2925" fill="#000000" font-family="Helvetica" font-style="normal" font-weight="bold" font-size="450" text-anchor="start">ATtiny85</text>
+<!-- Text -->
+<text xml:space="preserve" x="-2160" y="-4770" fill="#000000" font-family="Helvetica" font-style="normal" font-weight="bold" font-size="450" text-anchor="start">BMS</text>
+<!-- Text -->
+<text xml:space="preserve" x="630" y="-12870" fill="#000000" font-family="Helvetica" font-style="normal" font-weight="bold" font-size="450" text-anchor="start">On off</text>
+<!-- Circle -->
+<circle cx="1395" cy="7830" r="186" fill="#ff0000"
+	stroke="#000000" stroke-width="45px"/>
+<!-- Circle -->
+<defs>
+<circle cx="675" cy="7470" r="142" id="p3"/>
+<pattern id="tile3" patternUnits="userSpaceOnUse"
+	x="0" y="0" width="134" height="67">
+<g stroke-width="7.5" stroke="#000000" fill="none">
+<path d="M -7,30 73,70 M 61,-3 141,37"/>
+</g>
+</pattern>
+</defs>
+<use xlink:href="#p3" fill="#000000"/>
+<use xlink:href="#p3" fill="url(#tile3)"
+	stroke="#000000" stroke-width="45px"/>
+<!-- Circle -->
+<circle cx="4275" cy="8460" r="162" fill="#ff00ff"
+	stroke="#000000" stroke-width="45px"/>
+<!-- Circle -->
+<circle cx="3870" cy="9090" r="162" fill="#ff00ff"
+	stroke="#000000" stroke-width="45px"/>
+<!-- Circle -->
+<defs>
+<circle cx="4455" cy="7740" r="90" id="p4"/>
+<pattern id="tile4" patternUnits="userSpaceOnUse"
+	x="0" y="0" width="134" height="67">
+<g stroke-width="7.5" stroke="#00ff00" fill="none">
+<path d="M -7,30 73,70 M 61,-3 141,37"/>
+</g>
+</pattern>
+</defs>
+<use xlink:href="#p4" fill="#00ff00"/>
+<use xlink:href="#p4" fill="url(#tile4)"
+	stroke="#00ff00" stroke-width="45px"/>
+<!-- Circle -->
+<defs>
+<circle cx="4995" cy="7020" r="90" id="p5"/>
+<pattern id="tile5" patternUnits="userSpaceOnUse"
+	x="0" y="0" width="134" height="67">
+<g stroke-width="7.5" stroke="#00ff00" fill="none">
+<path d="M -7,30 73,70 M 61,-3 141,37"/>
+</g>
+</pattern>
+</defs>
+<use xlink:href="#p5" fill="#00ff00"/>
+<use xlink:href="#p5" fill="url(#tile5)"
+	stroke="#00ff00" stroke-width="45px"/>
+</g>
+</svg>
