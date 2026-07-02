@@ -93,7 +93,4 @@ for reduce the time for it. time to time and buold one for this friends, and som
 <img src="pcb-final1.jpg" width="400" alt="pcb">
 <img src="pcb-final2.jpg" width="400" alt="pcb">
  
-you can bough 5 pcb for less than 20€ and really make 5 mp3 more quick than solder all the wire for each one. i finish electronqiue for one in 10 minutes instead 2h
-
-in the futur if the production need another upgrade i will make a complete pcb with only the mp3 module as a daughter board, and everything else
-boost, bms and attiny directly solder on the pcb. it need approxymatly 20 or more mp3 to do that, actually made it for free only the case need to be bought for my friend and other mental disabled friend
+ this pcb can spped up your box, only 10 to 15 min to finish one instead 2 a 3h, this pcb let you choose wich chip you prefer, small board with Attiny85, chip attiny85, STM8, CH32S003, the last one cost only 0.20€ and you can use arduino-ide for programming it
