@@ -93,4 +93,6 @@ for reduce the time for it. time to time and buold one for this friends, and som
 <img src="pcb-final1.jpg" width="400" alt="pcb">
 <img src="pcb-final2.jpg" width="400" alt="pcb">
  
- this pcb can spped up your box, only 10 to 15 min to finish one instead 2 a 3h, this pcb let you choose wich chip you prefer, small board with Attiny85, chip attiny85, STM8, CH32S003, the last one cost only 0.20€ and you can use arduino-ide for programming it
+ this pcb can spped up your box, only 10 to 15 min to finish one instead 2 a 3h, this pcb let you choose wich chip you prefer, small board with Attiny85, chip attiny85, STM8, CH32V003A4M6, the last one cost only 0.20€ and you can use arduino-ide for programming it
+ 
+ YOU NEED ONLY ONE OF THIS CHIP AT ONCE : attiny85, STM8, CH32V003A4M6 simply choose wich you prefer
